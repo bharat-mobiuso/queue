@@ -25,8 +25,8 @@ public class Mobiuso_project
         	System.out.println("The queue is empty");
         else{
             front=front+1;
-            return q[front];
-            q_size--;
+             q_size--;
+	     return q[front];
             }
         return -1;
     }
