@@ -1,16 +1,33 @@
+
+package mobiuso_project;
+
 import java.util.*;
-public class queue
+public class Mobiuso_project
 {   
-    static int q[] = new int[100];
+    static int maxStorage=100;
 	static int q_size = 0;
-	
-    public static void enqueque(int newElement)
+    static int q[] = new int[100];
+	static int front=-1;
+    static int rear=-1;
+    public static void enqueue(int newElement)
     {
-        
+        if(rear>maxStorage) 
+        	System.out.println("The queue is full");
+        else {
+            rear=rear+1;
+            q_size++;
+            q[rear]=newElement;
+        }
     }
-    public static void dequeue()
+    public static int dequeue()
     {
-        
+        if(rear==front) 
+        	System.out.println("The queue is empty");
+        else{
+            front=front+1;
+            return q[front];
+            }
+        return -1;
     }
     public static int size_of_queue()
     {
@@ -27,21 +44,30 @@ public class queue
 	public static void main(String[] args) 
 	{
 	    Scanner sc = new Scanner(System.in);
-		System.out.println("Choose Option\n1.Insert in queue\n2.Delete from queue\n3.size of queue\n4.print queue elements\n");
-		int choice = sc.nextInt();
+		System.out.println("Choose Option\n1.Insert in queue\n2.Delete from queue\n3.size of queue\n4.print queue elements\n5.Exit the session\n");
+		String exitCommand="";
+                
+        while(exitCommand!="exit")
+        {
+        	System.out.println("Choose Option\n1.Insert in queue\n2.Delete from queue\n3.size of queue\n4.print queue elements\n5.Exit the session\n");
+            int choice = sc.nextInt();
 		
-		switch(choice)
-		{
-		    case 1: System.out.print("Enter Element to be insert : ");
-		            int newEle = sc.nextInt();
-		            enqueque(newEle);
-		            break;
-		    case 2: dequeue();
-		            break;
-		    case 3: System.out.println("Size of queue is " + size_of_queue());
-		            break;
-		    case 4: print_queue();
-		            break;
+			switch(choice)
+			{
+			    case 1: System.out.print("Enter Element to be insert : ");
+			            int newEle = sc.nextInt();
+			            enqueue(newEle);
+			            break;
+			    case 2: dequeue();
+			            break;
+			    case 3: System.out.println("Size of queue is " + size_of_queue());
+			            break;
+			    case 4: print_queue();
+			            break;
+	            case 5: exitCommand="exit";
+	                    break;
+			}
 		}
-	}
+    }
 }
+
