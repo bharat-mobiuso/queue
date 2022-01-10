@@ -1,8 +1,8 @@
 
-package mobiuso_project;
+package queue;
 
 import java.util.*;
-public class Mobiuso_project
+public class queue
 {   
     static int maxStorage=100;
 	static int q_size = 0;
@@ -26,6 +26,7 @@ public class Mobiuso_project
         else{
             front=front+1;
             return q[front];
+            q_size--;
             }
         return -1;
     }
@@ -35,11 +36,12 @@ public class Mobiuso_project
     }
     public static void print_queue()
     {
-    	if(!q_size)
+    	if(q_size == 0)
     		System.out.println("Queue is Empty !!");
-    	else
-        	for(int i=0;i<q_size;i++)
-        		System.out.println(q[i] + " ");
+    	
+    	for(int i=front+1;i<=rear;i++) 
+    	    System.out.print(q[i] + " ");
+    	System.out.println();
     }
 	public static void main(String[] args) 
 	{
