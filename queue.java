@@ -26,6 +26,7 @@ public class Mobiuso_project
         else{
             front=front+1;
             return q[front];
+            q_size--;
             }
         return -1;
     }
@@ -44,7 +45,6 @@ public class Mobiuso_project
 	public static void main(String[] args) 
 	{
 	    Scanner sc = new Scanner(System.in);
-		System.out.println("Choose Option\n1.Insert in queue\n2.Delete from queue\n3.size of queue\n4.print queue elements\n5.Exit the session\n");
 		String exitCommand="";
                 
         while(exitCommand!="exit")
