@@ -18,7 +18,11 @@ public class queue
     }
     public static void print_queue()
     {
-        
+    	if(!q_size)
+    		System.out.println("Queue is Empty !!");
+    	else
+        	for(int i=0;i<q_size;i++)
+        		System.out.println(q[i] + " ");
     }
 	public static void main(String[] args) 
 	{
