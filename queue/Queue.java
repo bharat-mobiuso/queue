@@ -2,11 +2,11 @@
 package queue;
 
 import java.util.*;
-public class queue
+public class Queue
 {   
     static int maxStorage=100;
-	static int q_size = 0;
-    static int q[] = new int[100];
+	static int queueSize = 0;
+    static int queue[] = new int[100];
 	static int front=-1;
     static int rear=-1;
     public static void enqueue(int newElement)
@@ -15,8 +15,8 @@ public class queue
         	System.out.println("The queue is full");
         else {
             rear=rear+1;
-            q_size++;
-            q[rear]=newElement;
+            queueSize++;
+            queue[rear]=newElement;
         }
     }
     public static int dequeue()
@@ -25,30 +25,32 @@ public class queue
         	System.out.println("The queue is empty");
         else{
             front=front+1;
-             q_size--;
-	     return q[front];
+             queueSize--;
+	     return queue[front];
             }
         return -1;
     }
-    public static int size_of_queue()
+
+    public static int sizeOfQueue()
     {
-        return q_size;
+        return queueSize;
     }
-    public static void print_queue()
+
+    public static void printQueue()
     {
-    	if(q_size == 0)
+    	if(queueSize == 0)
     		System.out.println("Queue is Empty !!");
     	
     	for(int i=front+1;i<=rear;i++) 
-    	    System.out.print(q[i] + " ");
+    	    System.out.print(queue[i] + " ");
     	System.out.println();
     }
 	public static void main(String[] args) 
 	{
 	    Scanner sc = new Scanner(System.in);
-		String exitCommand="";
+		boolean exitLoop = false;
                 
-        while(exitCommand!="exit")
+        while(exitLoop)
         {
         	System.out.println("Choose Option\n1.Insert in queue\n2.Delete from queue\n3.size of queue\n4.print queue elements\n5.Exit the session\n");
             int choice = sc.nextInt();
@@ -61,11 +63,11 @@ public class queue
 			            break;
 			    case 2: dequeue();
 			            break;
-			    case 3: System.out.println("Size of queue is " + size_of_queue());
+			    case 3: System.out.println("Size of queue is " + sizeOfQueue());
 			            break;
-			    case 4: print_queue();
+			    case 4: printQueue();
 			            break;
-	            case 5: exitCommand="exit";
+	            case 5: exitLoop = true;
 	                    break;
 			}
 		}
